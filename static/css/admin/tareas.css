@@ -1,0 +1,167 @@
+/* ============================================================
+   TAREAS.CSS - OPERPAN
+   ============================================================ */
+
+/* ── BOTONES DE ACCIÓN ESPECÍFICOS DE TAREA ── */
+.btn-corporate-sec {
+  background: #3690A6;
+  color: #ffffff;
+}
+
+.btn-corporate-sec:hover {
+  background: #2A7082;
+  color: #ffffff;
+}
+
+.btn-corporate-thi {
+  background: #008000;
+  color: #ffffff;
+}
+
+.btn-corporate-thi:hover {
+  background: #006400;
+  color: #ffffff;
+}
+
+/* ── TARJETAS DE TAREAS (TASK CARDS) ── */
+.task-card {
+  background: var(--color-surface);
+  border-radius: 20px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--color-border-soft);
+  overflow: visible !important;
+  position: relative;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.task-card:has(.dropdown-menu.show) {
+  z-index: 100;
+}
+
+.text-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+/* ── PRIORIDADES Y BADGES ──
+   Antes en hex fijo — ahora referencian los tokens de estado
+   compartidos (mismo criterio que badge-presente/tarde/ausente
+   de Asistencia), así responden al tema oscuro. */
+.priority-high {
+  color: var(--color-danger-text);
+  background: var(--color-danger-bg);
+  padding: 0.25rem 0.65rem;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.priority-medium {
+  color: var(--color-warning-text);
+  background: var(--color-warning-bg);
+  padding: 0.25rem 0.65rem;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.priority-low {
+  color: var(--color-success-text);
+  background: var(--color-success-bg);
+  padding: 0.25rem 0.65rem;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-status {
+  padding: 0.25rem 0.65rem;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-pendiente {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.badge-progreso {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+}
+
+.badge-finalizada {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+/* ── ACORDEÓN DE TAREAS DE HOY ── */
+.accordion-item {
+  background: var(--color-surface);
+  border: none;
+  border-left: 5px solid var(--color-primary);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.accordion-button {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.accordion-body {
+  border-top: 1px solid var(--color-border-soft);
+  background: var(--color-surface-subtle);
+  color: var(--color-text);
+  padding: 1.25rem;
+}
+
+.estado-badge {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .accordion-button {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .estado-badge {
+    position: static;
+    transform: none;
+    margin-left: 10px;
+  }
+}

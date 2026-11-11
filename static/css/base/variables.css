@@ -1,0 +1,261 @@
+/* ============================================================
+   VARIABLES.CSS - OPERPAN (SISTEMA DE GESTIÓN DE PERSONAL)
+   Temas claro (por defecto) y oscuro.
+   ============================================================ */
+
+:root {
+  /* ── Colores de marca ── */
+  --color-primary: #a40706;
+  --color-primary-hover: #8a0605;
+  --color-primary-soft: rgba(164, 7, 6, 0.1);
+  --color-primary-soft-2: #f8e4e4;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-pastel: #e6b1b0;
+
+  /* ── Colores de estado (badges, botones de acción, toasts) ── */
+  --color-success: #06a45a;
+  --color-success-hover: #05884b;
+  --color-success-bg: #e1faf0;
+  --color-success-text: #047a43;
+
+  --color-danger: #dc3545;
+  --color-danger-hover: #bb2d3b;
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #b91c1c;
+  --color-danger-strong: #ef4444;
+  --color-danger-strong-hover: #b91c1c;
+
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+  --color-warning-bg: #fff3e0;
+  --color-warning-text: #c77a00;
+
+  --color-info: #0284c7;
+  --color-info-hover: #0369a1;
+  --color-info-bg: #e6f0fa;
+  --color-info-text: #1a5d9c;
+
+  --color-teal: #0d9488;
+  --color-teal-hover: #0f766e;
+
+  --color-purple: #7c3aed;
+  --color-purple-hover: #6d28d9;
+  --color-purple-bg: #f1e8fd;
+  --color-purple-text: #6d28d9;
+
+  /* ── Estados de novedades (permisos / incapacidades / cambios de turno) ── */
+  --color-permiso: #3b82f6;
+  --color-permiso-hover: #2563eb;
+  --color-permiso-bg: #dbeafe;
+  --color-permiso-text: #1e40af;
+
+  --color-incapacidad: #ec4899;
+  --color-incapacidad-hover: #db2777;
+  --color-incapacidad-bg: #fce7f3;
+  --color-incapacidad-text: #9d174d;
+
+  --color-cambio-turno: #14b8a6;
+  --color-cambio-turno-hover: #0d9488;
+  --color-cambio-turno-bg: #ccfbf1;
+  --color-cambio-turno-text: #115e59;
+
+  /* ── Neutros (fondo, texto, bordes) ── */
+  --color-bg: #f4f7fc;
+  --color-surface: var(--color-white);
+  /* Superficie principal (tarjetas, modales) */
+  --color-surface-subtle: #f8fafc;
+  /* Fondos sutiles (inputs, hover) */
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-text-soft: #475569;
+  --color-border: #e2e8f0;
+  --color-border-soft: #edf2f7;
+  --color-placeholder-icon: #94a3b8;
+  --color-toast-text: #2c3e50;
+  --color-toast-close: #8a99aa;
+
+  /* ── Tipografía ── */
+  --font-main: "Poppins", sans-serif;
+
+  /* ── Radios ── */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 40px;
+  --radius-pill-lg: 60px;
+  --radius-full: 999px;
+  --radius-circle: 50%;
+
+  /* ── Sombras ── */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.05);
+  --shadow-modal: 0 20px 50px rgba(15, 23, 42, 0.18);
+  --shadow-focus: 0 0 0 3px rgba(164, 7, 6, 0.2);
+  --shadow-focus-soft: 0 0 0 3px rgba(164, 7, 6, 0.08);
+  --shadow-toast: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+  /* ── Sidebar / Topbar (oscuros, no dependen del branding) ── */
+  --color-surface-dark: #000000;
+  --color-surface-dark-border: #2c2c2c;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-soft: #e0e0e0;
+  --color-text-on-dark-muted: #bbbbbb;
+
+  /* ── Espaciado ── */
+  --spacing-xs: 0.4rem;
+  --spacing-sm: 0.6rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  /* ── Sistema global de acciones (.btn-action-*) ── */
+  --action-height: 36px;
+  --action-radius: 25px;
+  --action-radius-icon: var(--radius-circle);
+  --action-padding: 0.5rem 1rem;
+  --action-gap: 0.4rem;
+  --action-font-size: 0.88rem;
+  --action-icon-size: 1rem;
+
+  /* ── Colores semánticos de acción ── */
+  --color-action-view: var(--color-info);
+  --color-action-view-hover: var(--color-info-hover);
+  --color-action-edit: var(--color-info);
+  --color-action-edit-hover: var(--color-info-hover);
+  --color-action-info: var(--color-info);
+  --color-action-info-hover: var(--color-info-hover);
+  --color-action-create: var(--color-success);
+  --color-action-create-hover: var(--color-success-hover);
+  --color-action-save: var(--color-success);
+  --color-action-save-hover: var(--color-success-hover);
+  --color-action-approve: var(--color-success);
+  --color-action-approve-hover: var(--color-success-hover);
+  --color-action-activate: var(--color-success);
+  --color-action-activate-hover: var(--color-success-hover);
+  --color-action-reject: var(--color-danger);
+  --color-action-reject-hover: var(--color-danger-hover);
+  --color-action-delete: var(--color-danger-strong);
+  --color-action-delete-hover: var(--color-danger-strong-hover);
+  --color-action-suspend: var(--color-warning);
+  --color-action-suspend-hover: var(--color-warning-hover);
+  --color-action-download: var(--color-teal);
+  --color-action-download-hover: var(--color-teal-hover);
+  --color-action-print: var(--color-teal);
+  --color-action-print-hover: var(--color-teal-hover);
+  --color-action-neutral: #555555;
+  /* Botones secundarios (Cancelar, Cerrar) */
+  --color-action-neutral-hover: #444444;
+
+  /* ── Filtro para íconos nativos  */
+  --icon-filter-invert: none;
+}
+
+[data-theme="dark"] {
+  /* ── Marca ── */
+  --color-primary: #e4534f; /* mismo hue, +brillo para contraste */
+  --color-primary-hover: #ef6b67;
+  --color-primary-soft: rgba(228, 83, 79, 0.16);
+  --color-primary-soft-2: #3a2020; /* antes tinte claro → tinte oscuro */
+  --color-pastel: #5c3535;
+
+  /* ── Estados ── */
+  --color-success: #34d399;
+  --color-success-hover: #22c55e;
+  --color-success-bg: rgba(52, 211, 153, 0.14);
+  --color-success-text: #6ee7b7;
+
+  --color-danger: #f87171;
+  --color-danger-hover: #ef4444;
+  --color-danger-bg: rgba(239, 68, 68, 0.16);
+  --color-danger-text: #fca5a5;
+  --color-danger-strong: #f87171;
+  --color-danger-strong-hover: #ef4444;
+
+  --color-warning: #fbbf24;
+  --color-warning-hover: #f59e0b;
+  --color-warning-bg: rgba(245, 158, 11, 0.14);
+  --color-warning-text: #fcd34d;
+
+  --color-info: #38bdf8;
+  --color-info-hover: #0ea5e9;
+  --color-info-bg: rgba(56, 189, 248, 0.16);
+  --color-info-text: #7dd3fc;
+
+  --color-teal: #2dd4bf;
+  --color-teal-hover: #14b8a6;
+
+  --color-purple: #a78bfa;
+  --color-purple-hover: #8b5cf6;
+  --color-purple-bg: rgba(167, 139, 250, 0.16);
+  --color-purple-text: #c4b5fd;
+
+  /* ── Estados de novedades (permisos / incapacidades / cambios de turno) ── */
+  --color-permiso: #60a5fa;
+  --color-permiso-hover: #3b82f6;
+  --color-permiso-bg: rgba(59, 130, 246, 0.16);
+  --color-permiso-text: #93c5fd;
+
+  --color-incapacidad: #f472b6;
+  --color-incapacidad-hover: #ec4899;
+  --color-incapacidad-bg: rgba(236, 72, 153, 0.16);
+  --color-incapacidad-text: #f9a8d4;
+
+  --color-cambio-turno: #2dd4bf;
+  --color-cambio-turno-hover: #14b8a6;
+  --color-cambio-turno-bg: rgba(20, 184, 166, 0.16);
+  --color-cambio-turno-text: #5eead4;
+
+  /* ── Neutros ── */
+  --color-bg: #101317;
+  --color-surface: #1a1e24;
+  --color-surface-subtle: #20242b;
+  --color-text: #e8eaed;
+  --color-text-muted: #a3abb8;
+  --color-text-soft: #c7cbd3;
+  --color-border: #2c313a;
+  --color-border-soft: #232830;
+  --color-placeholder-icon: #6b7280;
+  --color-toast-text: #e8eaed;
+  --color-toast-close: #8b93a0;
+
+  /* ── Sombras (más fuertes, el negro sobre negro no se nota) ── */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.45);
+  --shadow-modal: 0 20px 50px rgba(0, 0, 0, 0.55);
+  --shadow-focus: 0 0 0 3px rgba(228, 83, 79, 0.3);
+  --shadow-focus-soft: 0 0 0 3px rgba(228, 83, 79, 0.12);
+  --shadow-toast: 0 12px 30px rgba(0, 0, 0, 0.4);
+
+  /* ── Acciones neutras (Cancelar/Cerrar/Filtrar) ── */
+  --color-action-neutral: #3a3f47;
+  --color-action-neutral-hover: #4a4f58;
+
+  /* ── Puente con variables nativas de Bootstrap ── */
+  --bs-body-bg: var(--color-bg);
+  --bs-body-color: var(--color-text);
+  --bs-secondary-color: var(--color-text-muted);
+  --bs-secondary-bg: var(--color-surface-subtle);
+  --bs-tertiary-bg: var(--color-surface);
+  --bs-border-color: var(--color-border);
+  --bs-emphasis-color: var(--color-text);
+  --bs-heading-color: var(--color-text);
+  --bs-link-color: var(--color-primary);
+  --bs-link-hover-color: var(--color-primary-hover);
+  --bs-light-rgb: 32, 36, 43;
+  --bs-light-bg-subtle: var(--color-surface-subtle);
+  --bs-light-border-subtle: var(--color-border-soft);
+  --bs-light-text-emphasis: var(--color-text);
+
+  --bs-secondary-rgb: 32, 36, 43;
+  --bs-secondary-bg-subtle: var(--color-surface-subtle);
+  --bs-secondary-border-subtle: var(--color-border-soft);
+  --bs-secondary-text-emphasis: var(--color-text);
+
+  --bs-info-bg-subtle: var(--color-info-bg);
+  --bs-info-border-subtle: var(--color-info-bg);
+  --bs-info-text-emphasis: var(--color-info-text);
+
+  --icon-filter-invert: invert(1) brightness(1.7);
+}

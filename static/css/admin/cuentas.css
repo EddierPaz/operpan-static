@@ -1,0 +1,165 @@
+/* ==============================================
+   MÓDULO DE CUENTAS / USUARIOS (ADMIN)
+   ============================================== */
+
+.badge-rol-admin {
+  background: var(--color-purple-bg);
+  color: var(--color-purple-text);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--color-purple);
+}
+
+.badge-rol-empleado {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--color-info);
+}
+
+.badge-inactive {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--color-warning);
+}
+
+/* No se usa hoy en content.html (Suspendida e Inactiva comparten
+   badge-inactive), pero se deja tokenizada por si se reactiva. */
+.badge-retirado {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--color-danger);
+}
+
+.badge-subtext {
+  font-weight: 400;
+  font-size: 0.65rem;
+  opacity: 0.8;
+  margin-left: 0.2rem;
+}
+
+/* ==============================================
+   TABLA DE USUARIOS
+   ============================================== */
+.usuario-badge {
+  background-color: var(--color-surface-subtle);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  display: inline-block;
+  letter-spacing: 0.3px;
+  border: 1px solid var(--color-border-soft);
+}
+
+.nombre-cargo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.nombre-empleado {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.cargo-empleado {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.acciones-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.accion-texto {
+  font-size: 0.75rem;
+  margin-left: 0.15rem;
+}
+
+@media (max-width: 768px) {
+  .accion-texto {
+    display: none;
+  }
+
+  .btn-action {
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  .btn-action i {
+    font-size: 0.95rem !important;
+  }
+
+  .btn-action-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .btn-action-icon i {
+    font-size: 0.9rem !important;
+  }
+
+  .dropdown-item {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .nombre-empleado {
+    font-size: 0.85rem;
+  }
+
+  .cargo-empleado {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .btn-action {
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  .btn-action i {
+    font-size: 1.1rem !important;
+  }
+
+  .btn-action-icon {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .btn-action-icon i {
+    font-size: 1rem !important;
+  }
+}

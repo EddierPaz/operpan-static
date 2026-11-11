@@ -1,0 +1,490 @@
+/* ==============================================
+   MÓDULO DE ASISTENCIA Y HORARIOS (EMPLEADO)
+============================================== */
+
+/* ── Tarjetas Grandes Contenedoras ── */
+.employee-card {
+  background: var(--color-surface);
+  border-radius: 28px;
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-soft);
+}
+
+.employee-card .d-flex.justify-content-between {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.employee-card h3,
+.employee-card h4 {
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+  margin-bottom: 0;
+}
+
+/* ── Tarjetas Internas / Métricas / Cajas ── */
+.metric-card,
+.info-box {
+  background: var(--color-surface);
+  border-radius: 20px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-soft);
+  height: 100%;
+}
+
+.info-box span.text-muted {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  display: block;
+}
+
+.info-box h5 {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ==============================================
+   ESTADO DE HOY 
+============================================== */
+.estado-hoy-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.estado-hoy-status {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-soft);
+}
+
+.estado-hoy-status-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.estado-hoy-status-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.estado-hoy-status-sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.1rem;
+}
+
+/* Presente: verde */
+.estado-hoy-status--presente {
+  background: var(--color-success-bg);
+  border-color: var(--color-success-bg);
+}
+.estado-hoy-status--presente .estado-hoy-status-icon {
+  background: var(--color-success);
+  color: #ffffff;
+}
+.estado-hoy-status--presente .estado-hoy-status-label {
+  color: var(--color-success-text);
+}
+
+/* Tarde: ámbar */
+.estado-hoy-status--tarde {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-bg);
+}
+.estado-hoy-status--tarde .estado-hoy-status-icon {
+  background: var(--color-warning);
+  color: #ffffff;
+}
+.estado-hoy-status--tarde .estado-hoy-status-label {
+  color: var(--color-warning-text);
+}
+
+/* Ausente: rojo (danger, no el rojo de marca) */
+.estado-hoy-status--ausente {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger-bg);
+}
+.estado-hoy-status--ausente .estado-hoy-status-icon {
+  background: var(--color-danger-strong);
+  color: #ffffff;
+}
+.estado-hoy-status--ausente .estado-hoy-status-label {
+  color: var(--color-danger-text);
+}
+
+/* Descanso: morado (neutro, distinto de los 3 estados laborales) */
+.estado-hoy-status--descanso {
+  background: var(--color-purple-bg);
+  border-color: var(--color-purple-bg);
+}
+.estado-hoy-status--descanso .estado-hoy-status-icon {
+  background: var(--color-purple);
+  color: #ffffff;
+}
+.estado-hoy-status--descanso .estado-hoy-status-label {
+  color: var(--color-purple-text);
+}
+
+.estado-hoy-grid {
+  flex: 2 1 320px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.estado-hoy-item {
+  padding: 0.75rem 0.9rem;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+}
+
+.estado-hoy-item-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.estado-hoy-item-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .estado-hoy-body {
+    flex-direction: column;
+  }
+}
+
+/* ── Tarjetas de Resumen KPI ── */
+.resumen-asistencia {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 20px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.resumen-asistencia .resumen-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.resumen-asistencia.resumen-success .resumen-icon {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.resumen-asistencia.resumen-warning .resumen-icon {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.resumen-asistencia.resumen-danger .resumen-icon {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.resumen-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.resumen-valor {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* ── Bloques de Asistencia por Turno ── */
+.turno-asistencia-bloque {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--color-surface);
+  margin-top: 1rem;
+}
+
+.turno-asistencia-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface-subtle);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.turno-asistencia-header h5 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.badge-turno-conteo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  padding: 0.3rem 0.8rem;
+  border-radius: 40px;
+}
+
+.turno-asistencia-bloque .table {
+  margin-bottom: 0;
+}
+
+/* ── Botones de Selección de Estado (Radio Buttons) ── */
+.estado-asistencia-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.estado-asistencia-group .btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 40px;
+  padding: 0.4rem 0.9rem;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.estado-asistencia-group .btn:hover {
+  border-color: var(--color-border);
+  background: var(--color-surface-subtle);
+}
+
+.btn-check:checked+.btn-check-presente {
+  background: var(--color-success-bg);
+  border-color: var(--color-success-text);
+  color: var(--color-success-text);
+}
+
+.btn-check:checked+.btn-check-tarde {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-text);
+  color: var(--color-warning-text);
+}
+
+.btn-check:checked+.btn-check-ausente {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-check:disabled+.btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==============================================
+   HISTORIAL RECIENTE Y TABLAS
+============================================== */
+
+/* ── Filtros tipo Pills ── */
+.historial-filter-bar {
+  background: var(--color-border);
+  padding: 4px;
+  border-radius: 40px;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.btn-filter {
+  border: none;
+  text-decoration: none;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-filter.active {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Badges de Registro e Historial ── */
+.badge-registro {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-registro.registrada {
+  color: var(--color-success);
+}
+
+.badge-registro.no-registrada {
+  color: var(--color-text-muted);
+}
+
+.badge-status {
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-presente {
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.badge-tarde {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.badge-ausente {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+/* Faltaban*/
+.badge-descanso {
+  background-color: var(--color-purple-bg);
+  color: var(--color-purple-text);
+}
+
+.badge-secondary {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* ============================================================
+   ESTADOS NUEVOS: Permiso / Incapacidad / Cambio de turno
+   ============================================================ */
+
+/* ── Badges del historial ── */
+.badge-status.badge-permiso {
+    background-color: var(--color-permiso-bg);
+    color: var(--color-permiso-text);
+}
+
+.badge-status.badge-incapacidad {
+    background-color: var(--color-incapacidad-bg);
+    color: var(--color-incapacidad-text);
+}
+
+.badge-status.badge-cambio-turno {
+    background-color: var(--color-cambio-turno-bg);
+    color: var(--color-cambio-turno-text);
+}
+
+/* ── Bloque "Estado de hoy" ── */
+.estado-hoy-status--permiso {
+    background: var(--color-permiso-bg);
+    border-color: var(--color-permiso-bg);
+}
+.estado-hoy-status--permiso .estado-hoy-status-icon {
+    background: var(--color-permiso);
+    color: #ffffff;
+}
+.estado-hoy-status--permiso .estado-hoy-status-label {
+    color: var(--color-permiso-text);
+}
+
+.estado-hoy-status--incapacidad {
+    background: var(--color-incapacidad-bg);
+    border-color: var(--color-incapacidad-bg);
+}
+.estado-hoy-status--incapacidad .estado-hoy-status-icon {
+    background: var(--color-incapacidad);
+    color: #ffffff;
+}
+.estado-hoy-status--incapacidad .estado-hoy-status-label {
+    color: var(--color-incapacidad-text);
+}
+
+.estado-hoy-status--cambio-turno {
+    background: var(--color-cambio-turno-bg);
+    border-color: var(--color-cambio-turno-bg);
+}
+.estado-hoy-status--cambio-turno .estado-hoy-status-icon {
+    background: var(--color-cambio-turno);
+    color: #ffffff;
+}
+.estado-hoy-status--cambio-turno .estado-hoy-status-label {
+    color: var(--color-cambio-turno-text);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .employee-card {
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+
+  .estado-asistencia-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .estado-asistencia-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

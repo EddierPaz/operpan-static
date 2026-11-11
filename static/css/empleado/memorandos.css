@@ -1,0 +1,60 @@
+/* ==============================================
+    ESTILOS PARA MIS MEMORANDOS
+============================================== */
+
+/* Estado vacío */
+#sinMemorandos i {
+    font-size: 3rem;
+    color: #CBD5E1;
+}
+
+#sinMemorandos p {
+    font-size: 1.1rem;
+    color: #94A3B8;
+}
+
+/* Responsive */
+.table-responsive-stack {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 767.98px) {
+    .table-custom thead {
+        display: none;
+    }
+
+    .table-custom tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #EDF2F7;
+        border-radius: 16px;
+        padding: 0.75rem;
+        background: white;
+    }
+
+    .table-custom tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .table-custom tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .table-custom tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        width: 40%;
+        color: #1E293B;
+    }
+
+    .btn-primary-corporate {
+        width: 100%;
+        text-align: center;
+    }
+}

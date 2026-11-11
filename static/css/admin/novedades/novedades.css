@@ -1,0 +1,254 @@
+/* ============================================================
+   NOVEDADES.CSS
+============================================================ */
+
+/* ============================================================
+   PANELES DE LAS PESTAÑAS
+============================================================ */
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* ============================================================
+   GRID DE TARJETAS DE SOLICITUD (bandeja de pendientes - admin)
+============================================================ */
+.solicitudes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.solicitud-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.solicitud-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.solicitud-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.solicitud-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.solicitud-titulo i {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.solicitud-empleado {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-soft);
+}
+
+.solicitud-empleado i {
+    color: var(--color-text-muted);
+}
+
+.solicitud-dato {
+    margin-top: 0.4rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.solicitud-dato i {
+    color: var(--color-placeholder-icon);
+}
+
+.solicitud-descripcion {
+    margin-top: 0.75rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    min-height: 42px;
+}
+
+.solicitud-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* Botón "Ver detalle": usa el color de acción "view" del sistema
+   global en vez del rojo institucional (evita competir con
+   Rechazar/Eliminar, que sí deben ser rojos). */
+.solicitud-btn-detalle {
+    border: none;
+    background: var(--color-action-view);
+    color: #ffffff;
+    border-radius: var(--action-radius);
+    padding: 0.55rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+}
+
+.solicitud-btn-detalle:hover {
+    background: var(--color-action-view-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.solicitud-btn-opciones {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-subtle);
+    color: var(--color-text-soft);
+    border-radius: var(--radius-circle);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.solicitud-btn-opciones:hover {
+    background: var(--color-primary-soft-2);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* ============================================================
+   ESTADO DE SOLICITUD EN TARJETA (bandeja de pendientes)
+   Para historial usar directamente .badge-pendiente/.badge-
+   aprobado/.badge-rechazado de components.css; esta clase queda
+   solo para el badge dentro de .solicitud-card.
+============================================================ */
+.solicitud-estado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.solicitud-estado-pendiente {
+    background: var(--color-warning-bg);
+    color: var(--color-warning-text);
+}
+
+.solicitud-estado-aprobado {
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+}
+
+.solicitud-estado-rechazado {
+    background: var(--color-danger-bg);
+    color: var(--color-danger-text);
+}
+
+/* Motivo de rechazo mostrado dentro de la tarjeta de bandeja
+   (para el detalle usar .modal-detalle-rechazo de components.css) */
+.novedad-motivo-rechazo {
+    margin-top: 0.75rem;
+    padding: 0.7rem 0.85rem;
+    background: var(--color-danger-bg);
+    border-left: 3px solid var(--color-danger-strong);
+    border-radius: var(--radius-xs);
+    color: var(--color-danger-text);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+/* ============================================================
+   ESTADO VACÍO Y RESPONSIVE GENERAL
+============================================================ */
+.solicitudes-vacio {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 2rem 1rem;
+}
+
+.solicitudes-vacio i {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-border);
+}
+
+@media (max-width: 992px) {
+    .solicitudes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .card-header {
+        justify-content: center !important;
+        text-align: center;
+    }
+    .novedades-tabs-container {
+        display: flex;
+        justify-content: center;
+    }
+    .novedades-tabs {
+        justify-content: center;
+        width: 100%;
+        border-radius: var(--radius-lg);
+    }
+    .novedades-tab {
+        flex: 1 1 auto;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    .solicitudes-grid {
+        grid-template-columns: 1fr;
+    }
+    .solicitud-card {
+        border-radius: var(--radius-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .novedades-tab {
+        padding: 0.45rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .novedades-tab i {
+        margin-right: 4px;
+    }
+    .solicitud-footer {
+        gap: 0.5rem;
+    }
+    .solicitud-btn-detalle {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    .solicitud-btn-opciones {
+        width: 36px;
+        height: 36px;
+    }
+}

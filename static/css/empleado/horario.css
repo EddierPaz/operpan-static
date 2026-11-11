@@ -1,0 +1,152 @@
+/* ============================================================
+   MÓDULO DE HORARIO (EMPLEADO)
+   ============================================================ */
+
+/* ── Cabecera de días de la semana ── */
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* ── Rejilla del calendario ── */
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+/* ── Celda de día ── */
+.dia-card {
+    border: 2px solid var(--color-border);
+    background: var(--color-surface-subtle);
+    border-radius: 12px;
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--color-text);
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.dia-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+}
+
+.dia-card small {
+    display: block;
+    font-size: 0.65rem;
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+/* Estados del día */
+.dia-card-presente {
+    background: var(--color-success-bg);
+    border-color: var(--color-success);
+    color: var(--color-success-text);
+}
+
+.dia-card-tarde {
+    background: var(--color-warning-bg);
+    border-color: var(--color-warning);
+    color: var(--color-warning-text);
+}
+
+.dia-card-ausente {
+    background: var(--color-danger-bg);
+    border-color: var(--color-danger);
+    color: var(--color-danger-text);
+}
+
+.dia-card-descanso {
+    background: var(--color-purple-bg);
+    border-color: var(--color-purple);
+    color: var(--color-purple-text);
+}
+
+/* Día futuro */
+.dia-card-futuro {
+    background: var(--color-surface);
+    border-color: var(--color-border-soft);
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+/* Hueco de relleno del calendario  */
+.dia-card-vacio {
+    background: transparent;
+    border: none;
+    min-height: 70px;
+}
+
+/* ── Leyenda ── */
+.leyenda-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.leyenda-color {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border-soft);
+    flex-shrink: 0;
+}
+
+.leyenda-presente { background: var(--color-success-bg); border-color: var(--color-success); }
+.leyenda-tarde { background: var(--color-warning-bg); border-color: var(--color-warning); }
+.leyenda-ausente { background: var(--color-danger-bg); border-color: var(--color-danger); }
+.leyenda-descanso { background: var(--color-purple-bg); border-color: var(--color-purple); }
+.leyenda-futuro { background: var(--color-surface); border-color: var(--color-border-soft); }
+
+/* ============================================================
+   ESTADOS NUEVOS EN EL CALENDARIO
+   ============================================================ */
+
+/* ── Días del calendario ── */
+.dia-card-permiso {
+    background: var(--color-permiso-bg);
+    border-color: var(--color-permiso);
+    color: var(--color-permiso-text);
+}
+
+.dia-card-incapacidad {
+    background: var(--color-incapacidad-bg);
+    border-color: var(--color-incapacidad);
+    color: var(--color-incapacidad-text);
+}
+
+.dia-card-cambio-turno {
+    background: var(--color-cambio-turno-bg);
+    border-color: var(--color-cambio-turno);
+    color: var(--color-cambio-turno-text);
+}
+
+/* ── Leyenda ── */
+.leyenda-permiso {
+    background: var(--color-permiso-bg);
+    border-color: var(--color-permiso);
+}
+.leyenda-incapacidad {
+    background: var(--color-incapacidad-bg);
+    border-color: var(--color-incapacidad);
+}
+.leyenda-cambio-turno {
+    background: var(--color-cambio-turno-bg);
+    border-color: var(--color-cambio-turno);
+}

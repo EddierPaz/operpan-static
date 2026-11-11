@@ -1,0 +1,24 @@
+/* ============================================================
+   CERTIFICADOS.CSS 
+============================================================ */
+
+.certificado-btn-descargar {
+    border: none;
+    background: var(--color-action-download);
+    color: #ffffff;
+    border-radius: var(--action-radius);
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.certificado-btn-descargar:hover {
+    background: var(--color-action-download-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
